@@ -13,6 +13,12 @@
 		1A32272C1D759E8F00CDCFF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32272B1D759E8F00CDCFF4 /* Assets.xcassets */; };
 		1A32272F1D759E8F00CDCFF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A32272D1D759E8F00CDCFF4 /* LaunchScreen.storyboard */; };
 		1A32273A1D759E9000CDCFF4 /* RESTInPeaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227391D759E9000CDCFF4 /* RESTInPeaceTests.swift */; };
+		1A3227451D759F3F00CDCFF4 /* Peace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227441D759F3F00CDCFF4 /* Peace.swift */; };
+		1A3227471D75A5D100CDCFF4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227461D75A5D100CDCFF4 /* Request.swift */; };
+		1A3227491D75A90300CDCFF4 /* PeacefulGithub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227481D75A90300CDCFF4 /* PeacefulGithub.swift */; };
+		1A32274B1D75BB1600CDCFF4 /* JSONConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32274A1D75BB1600CDCFF4 /* JSONConvertible.swift */; };
+		1A32274D1D75D11A00CDCFF4 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32274C1D75D11A00CDCFF4 /* Transformer.swift */; };
+		CC47629182EAF4046CD4D28A /* Pods_RESTInPeace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2440FDD473DF0D13883DA9B /* Pods_RESTInPeace.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,14 @@
 		1A3227351D759E9000CDCFF4 /* RESTInPeaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RESTInPeaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3227391D759E9000CDCFF4 /* RESTInPeaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTInPeaceTests.swift; sourceTree = "<group>"; };
 		1A32273B1D759E9000CDCFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A3227441D759F3F00CDCFF4 /* Peace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Peace.swift; path = Peace/Peace.swift; sourceTree = "<group>"; };
+		1A3227461D75A5D100CDCFF4 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Peace/Request.swift; sourceTree = "<group>"; };
+		1A3227481D75A90300CDCFF4 /* PeacefulGithub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeacefulGithub.swift; path = PeacefulGithub/PeacefulGithub.swift; sourceTree = "<group>"; };
+		1A32274A1D75BB1600CDCFF4 /* JSONConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONConvertible.swift; path = Peace/JSONConvertible.swift; sourceTree = "<group>"; };
+		1A32274C1D75D11A00CDCFF4 /* Transformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Transformer.swift; path = Peace/Transformer.swift; sourceTree = "<group>"; };
+		7F4D632CAFCAE3DF8CF33D1B /* Pods-RESTInPeace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RESTInPeace.release.xcconfig"; path = "Pods/Target Support Files/Pods-RESTInPeace/Pods-RESTInPeace.release.xcconfig"; sourceTree = "<group>"; };
+		C2440FDD473DF0D13883DA9B /* Pods_RESTInPeace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RESTInPeace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2C76A936DC9EFA79F5E0ED7 /* Pods-RESTInPeace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RESTInPeace.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RESTInPeace/Pods-RESTInPeace.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC47629182EAF4046CD4D28A /* Pods_RESTInPeace.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +71,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08BB2260CE6D632BBB84332D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2440FDD473DF0D13883DA9B /* Pods_RESTInPeace.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1A3227181D759E8F00CDCFF4 = {
 			isa = PBXGroup;
 			children = (
-				1A3227231D759E8F00CDCFF4 /* RESTInPeace */,
+				1A32274E1D75D69100CDCFF4 /* src */,
+				1A3227231D759E8F00CDCFF4 /* RESTInPeaceDemo */,
 				1A3227381D759E9000CDCFF4 /* RESTInPeaceTests */,
 				1A3227221D759E8F00CDCFF4 /* Products */,
+				D9F66DD78C0A9C3CB51E7408 /* Pods */,
+				08BB2260CE6D632BBB84332D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,7 +100,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1A3227231D759E8F00CDCFF4 /* RESTInPeace */ = {
+		1A3227231D759E8F00CDCFF4 /* RESTInPeaceDemo */ = {
 			isa = PBXGroup;
 			children = (
 				1A3227241D759E8F00CDCFF4 /* AppDelegate.swift */,
@@ -83,7 +109,9 @@
 				1A32272B1D759E8F00CDCFF4 /* Assets.xcassets */,
 				1A32272D1D759E8F00CDCFF4 /* LaunchScreen.storyboard */,
 				1A3227301D759E8F00CDCFF4 /* Info.plist */,
+				1A3227481D75A90300CDCFF4 /* PeacefulGithub.swift */,
 			);
+			name = RESTInPeaceDemo;
 			path = RESTInPeace;
 			sourceTree = "<group>";
 		};
@@ -96,6 +124,27 @@
 			path = RESTInPeaceTests;
 			sourceTree = "<group>";
 		};
+		1A32274E1D75D69100CDCFF4 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1A32274C1D75D11A00CDCFF4 /* Transformer.swift */,
+				1A32274A1D75BB1600CDCFF4 /* JSONConvertible.swift */,
+				1A3227441D759F3F00CDCFF4 /* Peace.swift */,
+				1A3227461D75A5D100CDCFF4 /* Request.swift */,
+			);
+			name = src;
+			path = RESTInPeace;
+			sourceTree = "<group>";
+		};
+		D9F66DD78C0A9C3CB51E7408 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2C76A936DC9EFA79F5E0ED7 /* Pods-RESTInPeace.debug.xcconfig */,
+				7F4D632CAFCAE3DF8CF33D1B /* Pods-RESTInPeace.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A32273E1D759E9000CDCFF4 /* Build configuration list for PBXNativeTarget "RESTInPeace" */;
 			buildPhases = (
+				EF0971483D33F90A1A2BC3C7 /* Check Pods Manifest.lock */,
 				1A32271D1D759E8F00CDCFF4 /* Sources */,
 				1A32271E1D759E8F00CDCFF4 /* Frameworks */,
 				1A32271F1D759E8F00CDCFF4 /* Resources */,
+				426395090E77DF0471217195 /* Embed Pods Frameworks */,
+				E1C54DF4E580F4F6C50C54A2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,11 +244,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		426395090E77DF0471217195 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RESTInPeace/Pods-RESTInPeace-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1C54DF4E580F4F6C50C54A2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RESTInPeace/Pods-RESTInPeace-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF0971483D33F90A1A2BC3C7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1A32271D1D759E8F00CDCFF4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A32274D1D75D11A00CDCFF4 /* Transformer.swift in Sources */,
+				1A3227451D759F3F00CDCFF4 /* Peace.swift in Sources */,
+				1A32274B1D75BB1600CDCFF4 /* JSONConvertible.swift in Sources */,
+				1A3227471D75A5D100CDCFF4 /* Request.swift in Sources */,
+				1A3227491D75A90300CDCFF4 /* PeacefulGithub.swift in Sources */,
 				1A3227271D759E8F00CDCFF4 /* ViewController.swift in Sources */,
 				1A3227251D759E8F00CDCFF4 /* AppDelegate.swift in Sources */,
 			);
@@ -325,6 +430,7 @@
 		};
 		1A32273F1D759E9000CDCFF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2C76A936DC9EFA79F5E0ED7 /* Pods-RESTInPeace.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RESTInPeace/Info.plist;
@@ -336,6 +442,7 @@
 		};
 		1A3227401D759E9000CDCFF4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F4D632CAFCAE3DF8CF33D1B /* Pods-RESTInPeace.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RESTInPeace/Info.plist;
@@ -388,6 +495,7 @@
 				1A3227401D759E9000CDCFF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A3227411D759E9000CDCFF4 /* Build configuration list for PBXNativeTarget "RESTInPeaceTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +504,7 @@
 				1A3227431D759E9000CDCFF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -12,13 +12,23 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        GithubInvoker().repo("xplorld")
+        .OnSuccess { (response) in
+            var arr = response.object ?? []
+            print(arr.count)
+            print(arr)
+        }
+        .OnFailure { (response) in
+            var err = response.object
+            print(err)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
 
 }
