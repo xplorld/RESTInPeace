@@ -10,6 +10,7 @@ import SwiftyJSON
 import UIKit
 
 
+
 struct Transformer {
    static func JSON<T:JSONConvertible>() -> (NSData -> T?) {
         return {

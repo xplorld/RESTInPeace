@@ -51,8 +51,12 @@ struct GithubInvoker: Invoker {
         return NSURL(string: "users/\(username)/repos", relativeToURL: descriptor.baseURL)!
     }
     
-    func repo(username:String) -> Request<[Repo]> {
-        return request(getURL(username),parameters: nil,transformer: Transformer.JSONArray())
+    func repo(username:String) -> Model<[Repo]> {
+        return
+            self.request(
+                self.getURL(username),
+                parameters: nil,
+                transformer: Transformer.JSONArray()
+        )
     }
-    
 }
