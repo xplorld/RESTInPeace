@@ -1,0 +1,6 @@
+framework module Pods_RESTInPeace {
+  umbrella header "Pods-RESTInPeace-umbrella.h"
+
+  export *
+  module * { export * }
+}
