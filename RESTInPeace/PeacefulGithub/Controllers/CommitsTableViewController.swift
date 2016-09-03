@@ -12,24 +12,37 @@ class CommitsTableViewController: UITableViewController {
     
     var repo:Repo? {
         didSet {
-            guard let repo = repo else {model = nil;return}
-            
-            model = GithubInvoker().commits(repo)
-                        .OnSuccess {[weak self] _ in
-                            self?.tableView.reloadData()
-                        }
+            if let repo = repo {
+                model = GithubInvoker().commits(repo)
+                    .OnSuccess {[weak self] _ in
+                        self?.tableView.reloadData()
+                    }
+                    .Finally { [weak self] _ in
+                        self?.refreshControl?.endRefreshing()
+                }
+                navigationItem.title = repo.name
+            } else {
+                model = nil
+                return
+            }
         }
     }
     
     var model:PaginatedSequenceModel<Commit>? {
         didSet {
-            model?.reload()
+            reloadModel()
         }
+    }
+    func reloadModel() {
+        model?.reload()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(CommitsTableViewController.reloadModel), forControlEvents: UIControlEvents.ValueChanged);
     }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -45,7 +58,7 @@ class CommitsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         //remaining cell less than 5
-        if tableView.numberOfRowsInSection(0) - indexPath.row < 1 {
+        if tableView.numberOfRowsInSection(0) - indexPath.row < 2 {
             model?.loadNextPage()
         }
     }

@@ -58,7 +58,8 @@ struct Commit : JSONConvertible {
 var githubDescriptor:Descriptor = Descriptor().with {
     $0.baseURL = NSURL(string: "https://api.github.com/")
     $0.accept = "application/vnd.github.v3+json"
-    $0.authorization = "token f8ca64a01866698c56cf6853f9bac5a24efe283f"
+    //GithubAccessToken is .gitignore'd
+    $0.authorization = "token \(GithubAccessToken)"
 }
 
 ///Invoker
@@ -76,7 +77,7 @@ struct GithubInvoker: Invoker {
     
     //todo: should <Commit>
     func commits(repo:Repo) -> PaginatedSequenceModel<Commit> {
-        let URL = NSURL(string: "users/\(repo.owner!.login!)/\(repo.name!)/commits", relativeToURL: descriptor.baseURL)!
+        let URL = NSURL(string: "repos/\(repo.owner!.login!)/\(repo.name!)/commits", relativeToURL: descriptor.baseURL)!
         
         return PaginatedSequenceModel<Commit>()
             .OnReload { (model) in
@@ -87,6 +88,8 @@ struct GithubInvoker: Invoker {
                    let nextURL = LinkHeader(value: linkString)["next"]
                 {
                     self.requestJSONArray(model, URL: nextURL)
+                } else {
+                    model.noMoreToLoad = true
                 }
         }
     }

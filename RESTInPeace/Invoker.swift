@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import Swift
 
 public protocol Invoker {
     associatedtype ObjectType
@@ -22,6 +21,9 @@ extension Invoker {
         parameters:[String:AnyObject]? = nil,
         transformer: NSData -> T?)
     {
+        if model.loading { return }
+        model.loading = true
+        
         let descriptor = self.descriptor
         
         Alamofire
@@ -34,6 +36,9 @@ extension Invoker {
             .validate(statusCode: 200..<400)
             .response {
                 request, response, data, error in
+                
+                model.loading = false
+                
                 if (error != nil || data == nil /* || !validate(resp)*/) {
                     model.failed(
                         Response<T>(
@@ -49,6 +54,7 @@ extension Invoker {
                             value: ValueOrError.Value(object)))
                 }
                 
+                model.finalized()
         }
     }
     public func requestJSONArray<T:JSONConvertible>(

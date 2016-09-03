@@ -9,34 +9,35 @@
 import Foundation
 import Swift
 /*
-public protocol ModelType {
-    //public get, private set
-    associatedtype ValueType
-    associatedtype ModelHandler = (Self -> Void)
-    associatedtype ResponseHandler = (Response<ValueType>) -> Void
-    
-    var value:ValueType? {get}
-    var response:Response<ValueType>? {get}
-    
-    /*should be called by the lib only, aka `internal` */
-    func succeed(response: Response<ValueType>)
-    func failed(response: Response<ValueType>)
-    init()
-}*/
+ public protocol ModelType {
+ //public get, internal set
+ associatedtype ValueType
+ associatedtype ModelHandler = (Self -> Void)
+ associatedtype ResponseHandler = (Response<ValueType>) -> Void
+ 
+ var value:ValueType? {get}
+ var response:Response<ValueType>? {get}
+ 
+ /*should be called by the lib only, aka `internal` */
+ func succeed(response: Response<ValueType>)
+ func failed(response: Response<ValueType>)
+ init()
+ }*/
 
 public class Model<T> /* : ModelType */ {
     public typealias ValueType = T
-    //public get, private set
-    public private(set) var value:T?
-    public private(set) var response:Response<T>?
+    //public get, internal set
+    public internal(set) var value:T?
+    public internal(set) var response:Response<T>?
     
-    public typealias ModelHandler = (Model -> Void)
     public typealias ResponseHandler =  (Response<T>) -> Void
     
-    private var loader:ModelHandler!
-    private var onSuccessHandler:ResponseHandler?
-    private var onFailureHandler:ResponseHandler?
+    internal var loader:(Model -> Void)!
+    internal var onSuccessHandler:ResponseHandler?
+    internal var onFailureHandler:ResponseHandler?
+    internal var onFinalizeHandler:(Model -> Void)?
     
+    internal var loading:Bool = false
     internal func succeed(response: Response<T>) {
         self.response = response
         self.value = response.value.getValue()
@@ -47,68 +48,44 @@ public class Model<T> /* : ModelType */ {
         self.response = response
         onFailureHandler?(response)
     }
-}
-
-//interface
-extension Model {
     
-    func reload() {
+    internal func finalized() {
+        onFinalizeHandler?(self)
+    }
+    
+//interface
+    public func reload() {
         value = nil
         response = nil
         loader(self)
     }
     
-    func OnReload(handler: ModelHandler) -> Self {
+    public func OnReload(handler: (Model -> Void)) -> Self {
         guard loader == nil else { fatalError("try to assign a once-assignable lambda twice")}
-            loader = handler
+        loader = handler
         return self
     }
     
     //todo: or allow multiple onsuccess handler?
-    func OnSuccess(handler: ResponseHandler) -> Self {
+    public func OnSuccess(handler: ResponseHandler) -> Self {
         guard onSuccessHandler == nil else { fatalError("try to assign a once-assignable lambda twice")}
         
-            onSuccessHandler = handler
+        onSuccessHandler = handler
         return self
     }
     
-    func OnFailure(handler: ResponseHandler) -> Self {
+    public func OnFailure(handler: ResponseHandler) -> Self {
         guard onFailureHandler == nil else { fatalError("try to assign a once-assignable lambda twice")}
-            onFailureHandler = handler
-        return self
-    }
-}
-
-
-
-public class PaginatedSequenceModel<T> : Model<[T]> {
-    
-    private var nextPageLoader : ModelHandler!
-    
-    override public func succeed(response: Response<[T]>) {
-        self.response = response
-        guard let newValues = response.value.getValue() else { return }
-        if self.value == nil {
-            self.value = newValues
-            return
-        }
-        self.value!.appendContentsOf(newValues)
-    }
-}
-
-extension PaginatedSequenceModel {
-    
-    func loadNextPage() {
-        if response != nil && value != nil {
-            nextPageLoader(self)
-        } else {
-            reload()
-        }
-    }
-    func OnReloadNextPage(handler: ModelHandler) -> Self {
-        guard nextPageLoader == nil else { fatalError("try to assign a once-assignable lambda twice")}
-        nextPageLoader = handler
+        onFailureHandler = handler
         return self
     }
     
+    public func Finally(handler: (Model -> Void)) -> Self {
+        guard onFinalizeHandler == nil else { fatalError("try to assign a once-assignable lambda twice")}
+        onFinalizeHandler = handler
+        return self
+    }
+
 }
+
+

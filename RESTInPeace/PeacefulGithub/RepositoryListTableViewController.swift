@@ -50,14 +50,14 @@ class RepositoryListTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let repo = model.value?[indexPath.row]
-        performSegueWithIdentifier("RepoToCommitsSeque", sender: Wrapper(repo))
+        performSegueWithIdentifier("RepoToCommitsSeque", sender: indexPath)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "RepoToCommitsSeque" {
             let vc = segue.destinationViewController as! CommitsTableViewController
-            vc.repo = (sender as? Wrapper<Repo>)?.value
+            let indexPath = sender as! NSIndexPath
+            vc.repo = model.value?[indexPath.row]
         }
     }
 }
