@@ -20,10 +20,8 @@ class RepositoryListTableViewController: UITableViewController {
         model =
             GithubInvoker().repo("xplorld")
                 .OnSuccess {
-                    print("----------------------")
-                    print($0)
-                    print("----------------------")
-                    self.tableView.reloadData()
+                    [weak self] _ in
+                    self?.tableView.reloadData()
                 }
                 .OnFailure { err in
                     //HUD
@@ -49,5 +47,17 @@ class RepositoryListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
         cell.textLabel?.text = model.value?[indexPath.row].name
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let repo = model.value?[indexPath.row]
+        performSegueWithIdentifier("RepoToCommitsSeque", sender: Wrapper(repo))
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "RepoToCommitsSeque" {
+            let vc = segue.destinationViewController as! CommitsTableViewController
+            vc.repo = (sender as? Wrapper<Repo>)?.value
+        }
     }
 }

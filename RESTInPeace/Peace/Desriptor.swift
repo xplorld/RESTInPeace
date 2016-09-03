@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-struct Descriptor {
+public struct Descriptor {
     init(method: Alamofire.Method = .GET,
          encoding:Alamofire.ParameterEncoding = .URL ) {
         self.method = method

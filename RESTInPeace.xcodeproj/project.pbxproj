@@ -20,6 +20,10 @@
 		1A3227491D75A90300CDCFF4 /* PeacefulGithub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227481D75A90300CDCFF4 /* PeacefulGithub.swift */; };
 		1A32274B1D75BB1600CDCFF4 /* JSONConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32274A1D75BB1600CDCFF4 /* JSONConvertible.swift */; };
 		1A32274D1D75D11A00CDCFF4 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32274C1D75D11A00CDCFF4 /* Transformer.swift */; };
+		1A969D2C1D7AC4A30080BEB3 /* LinkHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A969D2B1D7AC4A30080BEB3 /* LinkHeader.swift */; };
+		1A969D2F1D7B03DC0080BEB3 /* CommitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A969D2E1D7B03DC0080BEB3 /* CommitsTableViewController.swift */; };
+		1A969D311D7B08F20080BEB3 /* StructWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A969D301D7B08F20080BEB3 /* StructWrapper.swift */; };
+		1A969D331D7B0C740080BEB3 /* SecretCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A969D321D7B0C740080BEB3 /* SecretCredentials.swift */; };
 		1AFF3DE81D770254002925C9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFF3DE71D770254002925C9 /* Model.swift */; };
 		CC47629182EAF4046CD4D28A /* Pods_RESTInPeace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2440FDD473DF0D13883DA9B /* Pods_RESTInPeace.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +56,10 @@
 		1A3227481D75A90300CDCFF4 /* PeacefulGithub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeacefulGithub.swift; path = PeacefulGithub/PeacefulGithub.swift; sourceTree = "<group>"; };
 		1A32274A1D75BB1600CDCFF4 /* JSONConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONConvertible.swift; path = Peace/JSONConvertible.swift; sourceTree = "<group>"; };
 		1A32274C1D75D11A00CDCFF4 /* Transformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Transformer.swift; path = Peace/Transformer.swift; sourceTree = "<group>"; };
+		1A969D2B1D7AC4A30080BEB3 /* LinkHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkHeader.swift; path = Peace/Utils/LinkHeader.swift; sourceTree = "<group>"; };
+		1A969D2E1D7B03DC0080BEB3 /* CommitsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommitsTableViewController.swift; path = PeacefulGithub/Controllers/CommitsTableViewController.swift; sourceTree = "<group>"; };
+		1A969D301D7B08F20080BEB3 /* StructWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StructWrapper.swift; path = Peace/Utils/StructWrapper.swift; sourceTree = "<group>"; };
+		1A969D321D7B0C740080BEB3 /* SecretCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecretCredentials.swift; path = PeacefulGithub/SecretCredentials.swift; sourceTree = "<group>"; };
 		1AFF3DE71D770254002925C9 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7F4D632CAFCAE3DF8CF33D1B /* Pods-RESTInPeace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RESTInPeace.release.xcconfig"; path = "Pods/Target Support Files/Pods-RESTInPeace/Pods-RESTInPeace.release.xcconfig"; sourceTree = "<group>"; };
 		C2440FDD473DF0D13883DA9B /* Pods_RESTInPeace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RESTInPeace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +125,8 @@
 				1A3227301D759E8F00CDCFF4 /* Info.plist */,
 				1A3227481D75A90300CDCFF4 /* PeacefulGithub.swift */,
 				1A0F7FD31D77007C00B604FD /* RepositoryListTableViewController.swift */,
+				1A969D2E1D7B03DC0080BEB3 /* CommitsTableViewController.swift */,
+				1A969D321D7B0C740080BEB3 /* SecretCredentials.swift */,
 			);
 			name = RESTInPeaceDemo;
 			path = RESTInPeace;
@@ -134,6 +144,7 @@
 		1A32274E1D75D69100CDCFF4 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				1A969D2D1D7AC4BC0080BEB3 /* Utils */,
 				1A32274C1D75D11A00CDCFF4 /* Transformer.swift */,
 				1A32274A1D75BB1600CDCFF4 /* JSONConvertible.swift */,
 				1A3227441D759F3F00CDCFF4 /* Response.swift */,
@@ -143,6 +154,15 @@
 			);
 			name = src;
 			path = RESTInPeace;
+			sourceTree = "<group>";
+		};
+		1A969D2D1D7AC4BC0080BEB3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1A969D2B1D7AC4A30080BEB3 /* LinkHeader.swift */,
+				1A969D301D7B08F20080BEB3 /* StructWrapper.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		D9F66DD78C0A9C3CB51E7408 /* Pods */ = {
@@ -306,11 +326,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A969D311D7B08F20080BEB3 /* StructWrapper.swift in Sources */,
+				1A969D2F1D7B03DC0080BEB3 /* CommitsTableViewController.swift in Sources */,
 				1A32274D1D75D11A00CDCFF4 /* Transformer.swift in Sources */,
 				1A3227451D759F3F00CDCFF4 /* Response.swift in Sources */,
 				1A0F7FD61D77017E00B604FD /* Desriptor.swift in Sources */,
 				1A32274B1D75BB1600CDCFF4 /* JSONConvertible.swift in Sources */,
+				1A969D331D7B0C740080BEB3 /* SecretCredentials.swift in Sources */,
 				1A0F7FD81D7701A500B604FD /* Invoker.swift in Sources */,
+				1A969D2C1D7AC4A30080BEB3 /* LinkHeader.swift in Sources */,
 				1A3227491D75A90300CDCFF4 /* PeacefulGithub.swift in Sources */,
 				1A0F7FD41D77007C00B604FD /* RepositoryListTableViewController.swift in Sources */,
 				1AFF3DE81D770254002925C9 /* Model.swift in Sources */,

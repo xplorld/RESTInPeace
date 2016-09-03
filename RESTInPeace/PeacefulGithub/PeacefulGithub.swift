@@ -10,14 +10,16 @@ import UIKit
 import SwiftyJSON
 
 ///Models
-struct Owner : JSONConvertible {
+struct User : JSONConvertible {
     var id:Int?
     var url:String?
+    var login:String?
     
-    static func fromJSON(json: JSON) -> Owner {
-        var owner = Owner()
+    static func fromJSON(json: JSON) -> User? {
+        var owner = User()
         owner.id = json["id"].int
         owner.url = json["url"].string
+        owner.login = json["login"].string
         return owner
     }
 }
@@ -25,13 +27,29 @@ struct Owner : JSONConvertible {
 struct Repo : JSONConvertible {
     var id:Int?
     var name:String?
-    var owner:Owner?
-    static func fromJSON(json: JSON) -> Repo {
+    var owner:User?
+    static func fromJSON(json: JSON) -> Repo? {
         var repo = Repo()
         repo.id = json["id"].int
         repo.name = json["name"].string
         repo.owner <- json["owner"]
         return repo
+    }
+}
+
+struct Commit : JSONConvertible {
+    var sha:String?
+    var commiter:User?
+    var author:User?
+    var message:String?
+    
+    static func fromJSON(json: JSON) -> Commit? {
+        var commit = Commit()
+        commit.sha = json["sha"].string
+        commit.message = json["commit"]["message"].string
+        commit.commiter <- json["commitor"]
+        commit.author <- json["author"]
+        return commit
     }
 }
 
@@ -47,16 +65,29 @@ var githubDescriptor:Descriptor = Descriptor().with {
 struct GithubInvoker: Invoker {
     typealias ObjectType = Repo
     var descriptor: Descriptor = githubDescriptor
-    func getURL(username:String) -> NSURL {
-        return NSURL(string: "users/\(username)/repos", relativeToURL: descriptor.baseURL)!
-    }
     
     func repo(username:String) -> Model<[Repo]> {
-        return
-            self.request(
-                self.getURL(username),
-                parameters: nil,
-                transformer: Transformer.JSONArray()
-        )
+        let URL = NSURL(string: "users/\(username)/repos", relativeToURL: descriptor.baseURL)!
+        return Model<[Repo]>()
+            .OnReload { model in
+                self.requestJSONArray(model, URL:URL)
+        }
+    }
+    
+    //todo: should <Commit>
+    func commits(repo:Repo) -> PaginatedSequenceModel<Commit> {
+        let URL = NSURL(string: "users/\(repo.owner!.login!)/\(repo.name!)/commits", relativeToURL: descriptor.baseURL)!
+        
+        return PaginatedSequenceModel<Commit>()
+            .OnReload { (model) in
+                self.requestJSONArray(model, URL: URL)
+            }
+            .OnReloadNextPage { (model) in
+                if let linkString = model.response?.response?.allHeaderFields["Link"] as? String,
+                   let nextURL = LinkHeader(value: linkString)["next"]
+                {
+                    self.requestJSONArray(model, URL: nextURL)
+                }
+        }
     }
 }

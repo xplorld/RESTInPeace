@@ -8,10 +8,22 @@
 
 import Foundation
 
+public enum ValueOrError<T> {
+    case Value(T?)
+    case Error(ErrorType?)
+    
+    func getValue() -> T? {
+        if case .Value(let v) = self {
+            return v
+        }
+        fatalError("try to get value from a ValueOrError enum, but it actually is an error")
+    }
+}
+
 public struct Response<T> {
     public let request: NSURLRequest?
     public let response : NSHTTPURLResponse?
-    public let value: T?
+    public let value: ValueOrError<T>
 }
 
 

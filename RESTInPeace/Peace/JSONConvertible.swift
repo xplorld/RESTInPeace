@@ -8,24 +8,32 @@
 import SwiftyJSON
 import Swift
 
-protocol JSONConvertible {
-    static func fromJSON(json: JSON) -> Self
+public protocol JSONConvertible {
+    static func fromJSON(json: JSON) -> Self?
 }
 
-extension JSONConvertible {
-    static func arrayFromJSON(json: JSON) -> [Self] {
-        return json.arrayValue.map { Self.fromJSON($0) }
-    }
-}
-
-extension JSON {
-    func toType<T:JSONConvertible>() -> T {
+public extension JSON {
+    func toType<T: JSONConvertible>() -> T? {
         return T.fromJSON(self)
     }
-    func toArray<T:JSONConvertible>() -> [T] {
-        return T.arrayFromJSON(self)
+    
+    func toArray<T: JSONConvertible>() -> [T] {
+        return self.arrayValue.flatMap { T.fromJSON($0) }
     }
 }
+
+/*
+
+// For the time being, this code snippet would produce error:
+// Extension of type 'Array' with constraints cannot have an inheritance clause
+// If someday Swift do accept it, we would be able to eliminate all discriminations for Array in JSONConvertible's.
+ 
+extension Array : JSONConvertible where Element : JSONConvertible {
+    static func fromJSON(json: JSON) -> Array? {
+        return json.arrayValue.flatMap { Element.fromJSON($0) }
+    }
+}
+*/
 
 infix operator <- {
     associativity none
@@ -34,5 +42,9 @@ infix operator <- {
 }
 
 func <- <T:JSONConvertible>(inout lhs:T?, rhs:JSON) -> Void {
+    lhs = T.fromJSON(rhs)
+}
+
+func <- <T:JSONConvertible>(inout lhs:T!, rhs:JSON) -> Void {
     lhs = T.fromJSON(rhs)
 }

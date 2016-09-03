@@ -11,19 +11,30 @@ import UIKit
 
 
 
-struct Transformer {
-   static func JSON<T:JSONConvertible>() -> (NSData -> T?) {
-        return {
-            T.fromJSON(SwiftyJSON.JSON(data: $0))
+struct Transformer<T> {
+    typealias TransformerType = (NSData -> T?)
+}
+
+extension Transformer where T : JSONConvertible {
+    static var JSON : TransformerType {
+        get {
+            return { return T.fromJSON(SwiftyJSON.JSON(data: $0)) }
         }
     }
-    
-   static func JSONArray<T:JSONConvertible>() -> (NSData -> [T]?) {
-        return {
-            T.arrayFromJSON(SwiftyJSON.JSON(data: $0))
+}
+
+extension Transformer where T : CollectionType, T.Generator.Element : JSONConvertible {
+    static var JSON : (NSData -> [T.Generator.Element] ) {
+        get {
+            return { return SwiftyJSON.JSON(data: $0).toArray() }
         }
     }
-    static func Image() -> (NSData -> UIImage?) {
-        return { UIImage(data: $0) }
+}
+
+extension Transformer where T : UIImage {
+    static var Image : TransformerType {
+        get {
+            return { return T(data: $0) }
+        }
     }
 }
