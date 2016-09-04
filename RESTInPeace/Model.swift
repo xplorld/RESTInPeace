@@ -8,27 +8,37 @@
 
 import Foundation
 import Swift
+
 /*
- public protocol ModelType {
- //public get, internal set
- associatedtype ValueType
- associatedtype ModelHandler = (Self -> Void)
- associatedtype ResponseHandler = (Response<ValueType>) -> Void
+ //Does this protocol have any use cases?
+public protocol ModelType {
+    
+    associatedtype ValueType
+    
+    var value: ValueType? {get}
+    
+    var response: Response<ValueType>? {get}
+    
+    associatedtype ResponseHandler = (Response<ValueType>) -> Void
+    
+    func reload()
+    
+    func OnSuccess(handler: ResponseHandler) -> Self
+    
+    func OnFailure(handler: ResponseHandler) -> Self
+    
+    func Finally(handler: (Self -> Void)) -> Self
+}
  
- var value:ValueType? {get}
- var response:Response<ValueType>? {get}
- 
- /*should be called by the lib only, aka `internal` */
- func succeed(response: Response<ValueType>)
- func failed(response: Response<ValueType>)
- init()
- }*/
+*/
 
 public class Model<T> /* : ModelType */ {
     public typealias ValueType = T
     //public get, internal set
     public internal(set) var value:T?
     public internal(set) var response:Response<T>?
+    
+    public var userDefinedData:[String:AnyObject] = [:]
     
     public typealias ResponseHandler =  (Response<T>) -> Void
     

@@ -75,3 +75,28 @@ extension Invoker {
     }
     
 }
+
+
+func loadImage(url:URLStringConvertible?, handler:(UIImage? -> Void)) {
+    guard let url = url else { handler(nil); return }
+    Alamofire.request(.GET, url).response {
+        (_, _, data, _) in
+        if let data = data,
+            let image = Transformer<UIImage>.Image(data) {
+            handler(image)
+        } else {
+            handler(nil)
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

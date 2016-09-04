@@ -50,7 +50,7 @@ class CommitsTableViewController: UITableViewController {
         return model?.value?.count ?? 0
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("commitCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("commitCell",forIndexPath: indexPath)
         let commit = model?.value?[indexPath.row]
         cell.textLabel?.text = commit?.message
         return cell

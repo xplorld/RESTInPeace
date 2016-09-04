@@ -18,7 +18,7 @@ struct Transformer<T> {
 extension Transformer where T : JSONConvertible {
     static var JSON : TransformerType {
         get {
-            return { return T.fromJSON(SwiftyJSON.JSON(data: $0)) }
+            return { return SwiftyJSON.JSON(data: $0).toType() }
         }
     }
 }

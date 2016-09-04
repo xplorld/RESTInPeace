@@ -10,14 +10,17 @@
 		1A0F7FD41D77007C00B604FD /* RepositoryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0F7FD31D77007C00B604FD /* RepositoryListTableViewController.swift */; };
 		1A0F7FD61D77017E00B604FD /* Desriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0F7FD51D77017E00B604FD /* Desriptor.swift */; };
 		1A0F7FD81D7701A500B604FD /* Invoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0F7FD71D7701A500B604FD /* Invoker.swift */; };
+		1A18F0AE1D7C224300466FD6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18F0AD1D7C224300466FD6 /* User.swift */; };
+		1A18F0B01D7C228200466FD6 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18F0AF1D7C228200466FD6 /* Repo.swift */; };
+		1A18F0B21D7C22AA00466FD6 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18F0B11D7C22AA00466FD6 /* Commit.swift */; };
+		1A18F0B51D7C24F600466FD6 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18F0B41D7C24F600466FD6 /* RepoCell.swift */; };
 		1A3227251D759E8F00CDCFF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227241D759E8F00CDCFF4 /* AppDelegate.swift */; };
-		1A3227271D759E8F00CDCFF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227261D759E8F00CDCFF4 /* ViewController.swift */; };
 		1A32272A1D759E8F00CDCFF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A3227281D759E8F00CDCFF4 /* Main.storyboard */; };
 		1A32272C1D759E8F00CDCFF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32272B1D759E8F00CDCFF4 /* Assets.xcassets */; };
 		1A32272F1D759E8F00CDCFF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A32272D1D759E8F00CDCFF4 /* LaunchScreen.storyboard */; };
 		1A32273A1D759E9000CDCFF4 /* RESTInPeaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227391D759E9000CDCFF4 /* RESTInPeaceTests.swift */; };
 		1A3227451D759F3F00CDCFF4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227441D759F3F00CDCFF4 /* Response.swift */; };
-		1A3227491D75A90300CDCFF4 /* PeacefulGithub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227481D75A90300CDCFF4 /* PeacefulGithub.swift */; };
+		1A3227491D75A90300CDCFF4 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227481D75A90300CDCFF4 /* GithubAPI.swift */; };
 		1A32274B1D75BB1600CDCFF4 /* JSONConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32274A1D75BB1600CDCFF4 /* JSONConvertible.swift */; };
 		1A32274D1D75D11A00CDCFF4 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32274C1D75D11A00CDCFF4 /* Transformer.swift */; };
 		1A969D2C1D7AC4A30080BEB3 /* LinkHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A969D2B1D7AC4A30080BEB3 /* LinkHeader.swift */; };
@@ -42,9 +45,12 @@
 		1A0F7FD31D77007C00B604FD /* RepositoryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryListTableViewController.swift; path = PeacefulGithub/RepositoryListTableViewController.swift; sourceTree = "<group>"; };
 		1A0F7FD51D77017E00B604FD /* Desriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Desriptor.swift; path = Peace/Desriptor.swift; sourceTree = "<group>"; };
 		1A0F7FD71D7701A500B604FD /* Invoker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invoker.swift; sourceTree = "<group>"; };
+		1A18F0AD1D7C224300466FD6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = PeacefulGithub/API/Models/User.swift; sourceTree = "<group>"; };
+		1A18F0AF1D7C228200466FD6 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Repo.swift; path = PeacefulGithub/API/Models/Repo.swift; sourceTree = "<group>"; };
+		1A18F0B11D7C22AA00466FD6 /* Commit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commit.swift; path = PeacefulGithub/API/Models/Commit.swift; sourceTree = "<group>"; };
+		1A18F0B41D7C24F600466FD6 /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepoCell.swift; path = PeacefulGithub/Views/RepoCell.swift; sourceTree = "<group>"; };
 		1A3227211D759E8F00CDCFF4 /* RESTInPeace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RESTInPeace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3227241D759E8F00CDCFF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1A3227261D759E8F00CDCFF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1A3227291D759E8F00CDCFF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A32272B1D759E8F00CDCFF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A32272E1D759E8F00CDCFF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,7 +59,7 @@
 		1A3227391D759E9000CDCFF4 /* RESTInPeaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTInPeaceTests.swift; sourceTree = "<group>"; };
 		1A32273B1D759E9000CDCFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A3227441D759F3F00CDCFF4 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Peace/Response.swift; sourceTree = "<group>"; };
-		1A3227481D75A90300CDCFF4 /* PeacefulGithub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeacefulGithub.swift; path = PeacefulGithub/PeacefulGithub.swift; sourceTree = "<group>"; };
+		1A3227481D75A90300CDCFF4 /* GithubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GithubAPI.swift; path = PeacefulGithub/API/GithubAPI.swift; sourceTree = "<group>"; };
 		1A32274A1D75BB1600CDCFF4 /* JSONConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONConvertible.swift; path = Peace/JSONConvertible.swift; sourceTree = "<group>"; };
 		1A32274C1D75D11A00CDCFF4 /* Transformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Transformer.swift; path = Peace/Transformer.swift; sourceTree = "<group>"; };
 		1A969D2B1D7AC4A30080BEB3 /* LinkHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkHeader.swift; path = Peace/Utils/LinkHeader.swift; sourceTree = "<group>"; };
@@ -93,6 +99,53 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1A18F0A91D7C21F900466FD6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1A0F7FD31D77007C00B604FD /* RepositoryListTableViewController.swift */,
+				1A969D2E1D7B03DC0080BEB3 /* CommitsTableViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1A18F0AA1D7C220F00466FD6 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				1A3227241D759E8F00CDCFF4 /* AppDelegate.swift */,
+				1A32272B1D759E8F00CDCFF4 /* Assets.xcassets */,
+				1A3227301D759E8F00CDCFF4 /* Info.plist */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		1A18F0AB1D7C221B00466FD6 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				1A3227281D759E8F00CDCFF4 /* Main.storyboard */,
+				1A32272D1D759E8F00CDCFF4 /* LaunchScreen.storyboard */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		1A18F0AC1D7C222900466FD6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1A3227481D75A90300CDCFF4 /* GithubAPI.swift */,
+				1A18F0B11D7C22AA00466FD6 /* Commit.swift */,
+				1A18F0AF1D7C228200466FD6 /* Repo.swift */,
+				1A18F0AD1D7C224300466FD6 /* User.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		1A18F0B31D7C24DB00466FD6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A18F0B41D7C24F600466FD6 /* RepoCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		1A3227181D759E8F00CDCFF4 = {
 			isa = PBXGroup;
 			children = (
@@ -117,15 +170,11 @@
 		1A3227231D759E8F00CDCFF4 /* RESTInPeaceDemo */ = {
 			isa = PBXGroup;
 			children = (
-				1A3227241D759E8F00CDCFF4 /* AppDelegate.swift */,
-				1A3227261D759E8F00CDCFF4 /* ViewController.swift */,
-				1A3227281D759E8F00CDCFF4 /* Main.storyboard */,
-				1A32272B1D759E8F00CDCFF4 /* Assets.xcassets */,
-				1A32272D1D759E8F00CDCFF4 /* LaunchScreen.storyboard */,
-				1A3227301D759E8F00CDCFF4 /* Info.plist */,
-				1A3227481D75A90300CDCFF4 /* PeacefulGithub.swift */,
-				1A0F7FD31D77007C00B604FD /* RepositoryListTableViewController.swift */,
-				1A969D2E1D7B03DC0080BEB3 /* CommitsTableViewController.swift */,
+				1A18F0B31D7C24DB00466FD6 /* Views */,
+				1A18F0AA1D7C220F00466FD6 /* Others */,
+				1A18F0AB1D7C221B00466FD6 /* Nibs */,
+				1A18F0AC1D7C222900466FD6 /* API */,
+				1A18F0A91D7C21F900466FD6 /* Controller */,
 				1A969D321D7B0C740080BEB3 /* SecretCredentials.swift */,
 			);
 			name = RESTInPeaceDemo;
@@ -326,19 +375,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A18F0B21D7C22AA00466FD6 /* Commit.swift in Sources */,
 				1A969D2F1D7B03DC0080BEB3 /* CommitsTableViewController.swift in Sources */,
 				1A32274D1D75D11A00CDCFF4 /* Transformer.swift in Sources */,
 				1A3227451D759F3F00CDCFF4 /* Response.swift in Sources */,
 				1A0F7FD61D77017E00B604FD /* Desriptor.swift in Sources */,
 				1A32274B1D75BB1600CDCFF4 /* JSONConvertible.swift in Sources */,
 				1A969D331D7B0C740080BEB3 /* SecretCredentials.swift in Sources */,
+				1A18F0B51D7C24F600466FD6 /* RepoCell.swift in Sources */,
 				1A969D351D7B1FEA0080BEB3 /* PaginatedSequenceModel.swift in Sources */,
 				1A0F7FD81D7701A500B604FD /* Invoker.swift in Sources */,
 				1A969D2C1D7AC4A30080BEB3 /* LinkHeader.swift in Sources */,
-				1A3227491D75A90300CDCFF4 /* PeacefulGithub.swift in Sources */,
+				1A18F0AE1D7C224300466FD6 /* User.swift in Sources */,
+				1A3227491D75A90300CDCFF4 /* GithubAPI.swift in Sources */,
 				1A0F7FD41D77007C00B604FD /* RepositoryListTableViewController.swift in Sources */,
+				1A18F0B01D7C228200466FD6 /* Repo.swift in Sources */,
 				1AFF3DE81D770254002925C9 /* Model.swift in Sources */,
-				1A3227271D759E8F00CDCFF4 /* ViewController.swift in Sources */,
 				1A3227251D759E8F00CDCFF4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

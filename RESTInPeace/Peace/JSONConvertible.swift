@@ -9,16 +9,16 @@ import SwiftyJSON
 import Swift
 
 public protocol JSONConvertible {
-    static func fromJSON(json: JSON) -> Self?
+    init?(json: JSON)
 }
 
 public extension JSON {
     func toType<T: JSONConvertible>() -> T? {
-        return T.fromJSON(self)
+        return T(json: self)
     }
     
     func toArray<T: JSONConvertible>() -> [T] {
-        return self.arrayValue.flatMap { T.fromJSON($0) }
+        return self.arrayValue.flatMap { T(json:$0) }
     }
 }
 
@@ -42,9 +42,9 @@ infix operator <- {
 }
 
 func <- <T:JSONConvertible>(inout lhs:T?, rhs:JSON) -> Void {
-    lhs = T.fromJSON(rhs)
+    lhs = T(json:rhs)
 }
 
 func <- <T:JSONConvertible>(inout lhs:T!, rhs:JSON) -> Void {
-    lhs = T.fromJSON(rhs)
+    lhs = T(json:rhs)
 }
