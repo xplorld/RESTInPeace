@@ -7,18 +7,25 @@
 //
 import SwiftyJSON
 import Swift
+import DateTools
 
 public protocol JSONConvertible {
-    init?(json: JSON)
+    static func fromJSON(json: JSON) -> Self?
 }
 
 public extension JSON {
     func toType<T: JSONConvertible>() -> T? {
-        return T(json: self)
+        return T.fromJSON(self)
     }
     
     func toArray<T: JSONConvertible>() -> [T] {
-        return self.arrayValue.flatMap { T(json:$0) }
+        return self.arrayValue.flatMap { $0.toType() }
+    }
+}
+
+extension NSDate : JSONConvertible {
+    public static func fromJSON(json: JSON) -> Self? {
+        return self.init(string: json.stringValue, formatString: "yyyy-MM-dd'T'HH:mm:ssZ")
     }
 }
 
@@ -42,9 +49,9 @@ infix operator <- {
 }
 
 func <- <T:JSONConvertible>(inout lhs:T?, rhs:JSON) -> Void {
-    lhs = T(json:rhs)
+    lhs = rhs.toType()
 }
 
 func <- <T:JSONConvertible>(inout lhs:T!, rhs:JSON) -> Void {
-    lhs = T(json:rhs)
+    lhs = rhs.toType()
 }

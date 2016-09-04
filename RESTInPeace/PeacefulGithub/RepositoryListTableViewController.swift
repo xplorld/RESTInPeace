@@ -44,6 +44,8 @@ class RepositoryListTableViewController: UITableViewController {
             cell.descLabel.text = repo.description
             cell.forkNumLabel.text = "\(repo.forks_count ?? 0)"
             cell.starNumLabel.text = "\(repo.stargazers_count ?? 0)"
+            
+            //todo: incorperate some image loader lib
             loadImage(repo.owner?.avatar_url) {
                 cell.avatar.image = $0
             }

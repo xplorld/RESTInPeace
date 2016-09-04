@@ -148,13 +148,76 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commitCell" id="lDj-lz-7fn">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommitCell" rowHeight="100" id="ueR-fY-Dex" customClass="CommitCell" customModule="RESTInPeace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lDj-lz-7fn" id="eUW-bd-E7D">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ueR-fY-Dex" id="RUF-7r-DcG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PrZ-IC-pLh">
+                                            <rect key="frame" x="8" y="8" width="70" height="70"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="PrZ-IC-pLh" secondAttribute="height" id="Fsm-Ew-671"/>
+                                                <constraint firstAttribute="width" constant="70" id="TPT-pc-hbS"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="This is a description." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-er-O5i">
+                                            <rect key="frame" x="86" y="37" width="281" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="46" id="2sc-4Y-PIJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="2sc-4Y-PIJ"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmJ-Ay-wGc">
+                                            <rect key="frame" x="86" y="8" width="101" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7p-a0-vZR">
+                                            <rect key="frame" x="86" y="70" width="76" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tmJ-Ay-wGc" firstAttribute="leading" secondItem="PrZ-IC-pLh" secondAttribute="trailing" constant="8" symbolic="YES" id="26l-2t-sGT"/>
+                                        <constraint firstItem="h7p-a0-vZR" firstAttribute="top" secondItem="8zg-er-O5i" secondAttribute="bottom" constant="8" symbolic="YES" id="2Eb-sw-PW2"/>
+                                        <constraint firstItem="PrZ-IC-pLh" firstAttribute="top" secondItem="RUF-7r-DcG" secondAttribute="top" constant="8" id="57D-2n-7V7"/>
+                                        <constraint firstItem="8zg-er-O5i" firstAttribute="top" secondItem="tmJ-Ay-wGc" secondAttribute="bottom" constant="8" symbolic="YES" id="5Bx-Wb-Rp6"/>
+                                        <constraint firstItem="8zg-er-O5i" firstAttribute="trailing" secondItem="RUF-7r-DcG" secondAttribute="trailingMargin" id="BSv-zH-OrJ"/>
+                                        <constraint firstItem="h7p-a0-vZR" firstAttribute="leading" secondItem="8zg-er-O5i" secondAttribute="leading" id="Jlp-81-LGE"/>
+                                        <constraint firstItem="h7p-a0-vZR" firstAttribute="bottom" secondItem="RUF-7r-DcG" secondAttribute="bottomMargin" id="fDj-0o-Lg5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="PrZ-IC-pLh" secondAttribute="bottom" constant="27" id="hZA-c6-cEj"/>
+                                        <constraint firstItem="8zg-er-O5i" firstAttribute="bottom" secondItem="PrZ-IC-pLh" secondAttribute="bottom" id="ksD-Q0-mZT"/>
+                                        <constraint firstItem="8zg-er-O5i" firstAttribute="leading" secondItem="tmJ-Ay-wGc" secondAttribute="leading" id="qU3-DS-gK5"/>
+                                        <constraint firstItem="PrZ-IC-pLh" firstAttribute="leading" secondItem="RUF-7r-DcG" secondAttribute="leadingMargin" id="tEU-Qq-Jnx"/>
+                                        <constraint firstItem="tmJ-Ay-wGc" firstAttribute="leading" secondItem="PrZ-IC-pLh" secondAttribute="trailing" constant="8" symbolic="YES" id="vWK-65-Xdk"/>
+                                        <constraint firstItem="tmJ-Ay-wGc" firstAttribute="top" secondItem="RUF-7r-DcG" secondAttribute="topMargin" id="xeP-0n-odE"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="hZA-c6-cEj"/>
+                                            <exclude reference="vWK-65-Xdk"/>
+                                            <exclude reference="ksD-Q0-mZT"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="authorNameLabel" destination="tmJ-Ay-wGc" id="M8F-hP-Nma"/>
+                                    <outlet property="avatar" destination="PrZ-IC-pLh" id="F4f-tO-ale"/>
+                                    <outlet property="descLabel" destination="8zg-er-O5i" id="2Uu-bw-gdi"/>
+                                    <outlet property="timeLabel" destination="h7p-a0-vZR" id="yef-FK-s06"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

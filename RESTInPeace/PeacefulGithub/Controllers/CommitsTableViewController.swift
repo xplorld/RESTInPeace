@@ -39,6 +39,10 @@ class CommitsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.estimatedRowHeight = 44
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(CommitsTableViewController.reloadModel), forControlEvents: UIControlEvents.ValueChanged);
     }
@@ -50,9 +54,15 @@ class CommitsTableViewController: UITableViewController {
         return model?.value?.count ?? 0
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("commitCell",forIndexPath: indexPath)
-        let commit = model?.value?[indexPath.row]
-        cell.textLabel?.text = commit?.message
+        let cell = tableView.dequeueReusableCellWithIdentifier("CommitCell",forIndexPath: indexPath) as! CommitCell
+        if let commit = model?.value?[indexPath.row] {
+            cell.descLabel.text = commit.message
+            cell.timeLabel.text = commit.date?.timeAgoSinceNow()
+            cell.authorNameLabel.text = commit.author?.login
+            loadImage(commit.author?.avatar_url) {
+                cell.avatar.image = $0
+            }
+        }
         return cell
     }
     

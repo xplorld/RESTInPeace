@@ -14,6 +14,7 @@
 		1A18F0B01D7C228200466FD6 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18F0AF1D7C228200466FD6 /* Repo.swift */; };
 		1A18F0B21D7C22AA00466FD6 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18F0B11D7C22AA00466FD6 /* Commit.swift */; };
 		1A18F0B51D7C24F600466FD6 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18F0B41D7C24F600466FD6 /* RepoCell.swift */; };
+		1A18F0B71D7C2DC600466FD6 /* CommitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18F0B61D7C2DC600466FD6 /* CommitCell.swift */; };
 		1A3227251D759E8F00CDCFF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3227241D759E8F00CDCFF4 /* AppDelegate.swift */; };
 		1A32272A1D759E8F00CDCFF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A3227281D759E8F00CDCFF4 /* Main.storyboard */; };
 		1A32272C1D759E8F00CDCFF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32272B1D759E8F00CDCFF4 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		1A18F0AF1D7C228200466FD6 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Repo.swift; path = PeacefulGithub/API/Models/Repo.swift; sourceTree = "<group>"; };
 		1A18F0B11D7C22AA00466FD6 /* Commit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commit.swift; path = PeacefulGithub/API/Models/Commit.swift; sourceTree = "<group>"; };
 		1A18F0B41D7C24F600466FD6 /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepoCell.swift; path = PeacefulGithub/Views/RepoCell.swift; sourceTree = "<group>"; };
+		1A18F0B61D7C2DC600466FD6 /* CommitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommitCell.swift; path = PeacefulGithub/Views/CommitCell.swift; sourceTree = "<group>"; };
 		1A3227211D759E8F00CDCFF4 /* RESTInPeace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RESTInPeace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3227241D759E8F00CDCFF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A3227291D759E8F00CDCFF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				1A18F0B41D7C24F600466FD6 /* RepoCell.swift */,
+				1A18F0B61D7C2DC600466FD6 /* CommitCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			files = (
 				1A18F0B21D7C22AA00466FD6 /* Commit.swift in Sources */,
 				1A969D2F1D7B03DC0080BEB3 /* CommitsTableViewController.swift in Sources */,
+				1A18F0B71D7C2DC600466FD6 /* CommitCell.swift in Sources */,
 				1A32274D1D75D11A00CDCFF4 /* Transformer.swift in Sources */,
 				1A3227451D759F3F00CDCFF4 /* Response.swift in Sources */,
 				1A0F7FD61D77017E00B604FD /* Desriptor.swift in Sources */,

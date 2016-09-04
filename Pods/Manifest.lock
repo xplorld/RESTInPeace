@@ -1,13 +1,16 @@
 PODS:
   - Alamofire (3.4.2)
+  - DateTools (1.7.0)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire
+  - DateTools
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 6aa33201d20d069e1598891cf928883ff1888c7a
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

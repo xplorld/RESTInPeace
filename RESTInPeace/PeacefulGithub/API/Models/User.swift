@@ -14,10 +14,12 @@ struct User : JSONConvertible {
     var login:String?
     var avatar_url:String?
     
-    init(json: JSON) {
-        id = json["id"].int
-        url = json["url"].string
-        login = json["login"].string
-        avatar_url = json["avatar_url"].string
+    static func fromJSON(json: JSON) -> User? {
+        var user = User()
+        user.id = json["id"].int
+        user.url = json["url"].string
+        user.login = json["login"].string
+        user.avatar_url = json["avatar_url"].string
+        return user
     }
 }

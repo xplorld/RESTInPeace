@@ -13,12 +13,16 @@ struct Commit : JSONConvertible {
     var commiter:User?
     var author:User?
     var message:String?
+    var date:NSDate?
     
-    init(json: JSON) {
-        sha = json["sha"].string
-        message = json["commit"]["message"].string
-        commiter <- json["commitor"]
-        author <- json["author"]
+    static func fromJSON(json: JSON) -> Commit? {
+        var commit = Commit()
+        commit.sha = json["sha"].string
+        commit.message = json["commit"]["message"].string
+        commit.commiter <- json["commitor"]
+        commit.author <- json["author"]
+        commit.date <- json["commit"]["author"]["date"]
+        return commit
     }
 }
 

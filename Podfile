@@ -7,6 +7,8 @@ use_frameworks!
 target 'RESTInPeace' do
 	pod 'Alamofire'	
 	pod 'SwiftyJSON'
+	pod 'DateTools'
+	
 end
 
 target 'RESTInPeaceTests' do

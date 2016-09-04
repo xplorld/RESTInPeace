@@ -16,12 +16,14 @@ struct Repo : JSONConvertible {
     var stargazers_count:Int?
     var owner:User?
     
-    init(json: JSON) {
-        id = json["id"].int
-        name = json["name"].string
-        description = json["description"].string
-        forks_count = json["forks_count"].int
-        stargazers_count = json["stargazers_count"].int
-        owner <- json["owner"]
+    static func fromJSON(json: JSON) -> Repo? {
+        var repo = Repo()
+        repo.id = json["id"].int
+        repo.name = json["name"].string
+        repo.description = json["description"].string
+        repo.forks_count = json["forks_count"].int
+        repo.stargazers_count = json["stargazers_count"].int
+        repo.owner <- json["owner"]
+        return repo
     }
 }
